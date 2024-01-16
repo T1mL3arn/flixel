@@ -615,7 +615,7 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 	 *                     `function(sprite, v:Dynamic) { s.acceleration.x = v; s.makeGraphic(10,10,0xFF000000); }`
 	 * @param   Value      Value which will passed to lambda function.
 	 */
-	@:generic
+	// @:generic
 	public function transformChildren<V>(Function:T->V->Void, Value:V):Void
 	{
 		if (_skipTransformChildren || group == null)
@@ -634,7 +634,7 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 	 * @param   FunctionArray   `Array` of functions to transform sprites in this group.
 	 * @param   ValueArray      `Array` of values which will be passed to lambda functions
 	 */
-	@:generic
+	// @:generic
 	public function multiTransformChildren<V>(FunctionArray:Array<T->V->Void>, ValueArray:Array<V>):Void
 	{
 		if (_skipTransformChildren || group == null)
@@ -820,7 +820,7 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 	{
 		if (length == 0)
 			return 0;
-		
+
 		return findMaxXHelper() - findMinXHelper();
 	}
 
@@ -848,7 +848,7 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 				minX = (cast member:FlxSpriteGroup).findMinX();
 			else
 				minX = member.x;
-			
+
 			if (minX < value)
 				value = minX;
 		}
@@ -873,13 +873,13 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 		{
 			if (member == null)
 				continue;
-			
+
 			var maxX:Float;
 			if (member.flixelType == SPRITEGROUP)
-				maxX = (cast member:FlxSpriteGroup).findMaxX();
+				maxX = (cast member : FlxSpriteGroup).findMaxX();
 			else
 				maxX = member.x + member.width;
-			
+
 			if (maxX > value)
 				value = maxX;
 		}
@@ -898,7 +898,7 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 	{
 		if (length == 0)
 			return 0;
-		
+
 		return findMaxYHelper() - findMinYHelper();
 	}
 	
@@ -920,13 +920,13 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 		{
 			if (member == null)
 				continue;
-			
+
 			var minY:Float;
 			if (member.flixelType == SPRITEGROUP)
-				minY = (cast member:FlxSpriteGroup).findMinY();
+				minY = (cast member : FlxSpriteGroup).findMinY();
 			else
 				minY = member.y;
-			
+
 			if (minY < value)
 				value = minY;
 		}
@@ -951,13 +951,13 @@ class FlxTypedSpriteGroup<T:FlxSprite> extends FlxSprite
 		{
 			if (member == null)
 				continue;
-			
+
 			var maxY:Float;
 			if (member.flixelType == SPRITEGROUP)
-				maxY = (cast member:FlxSpriteGroup).findMaxY();
+				maxY = (cast member : FlxSpriteGroup).findMaxY();
 			else
 				maxY = member.y + member.height;
-			
+
 			if (maxY > value)
 				value = maxY;
 		}
