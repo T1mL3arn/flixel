@@ -2,6 +2,7 @@ package flixel.system.frontEnds;
 
 import flixel.FlxG;
 import openfl.ui.Mouse;
+import flixel.util.FlxSignal.FlxTypedSignal;
 #if FLX_RECORD
 import flixel.util.typeLimit.NextState;
 import flixel.FlxState;
@@ -11,8 +12,8 @@ import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.utils.ByteArray;
 #if flash
-import openfl.net.FileReference;
 import openfl.net.FileFilter;
+import openfl.net.FileReference;
 #end
 #end
 
@@ -59,6 +60,8 @@ class VCRFrontEnd
 	 */
 	public var stepRequested:Bool = false;
 
+	public var pauseChanged:FlxTypedSignal<Bool->Void> = new FlxTypedSignal();
+	
 	/**
 	 * Pause the main game loop
 	**/
@@ -72,6 +75,7 @@ class VCRFrontEnd
 			#end
 
 			paused = true;
+			pauseChanged.dispatch(true);
 
 			#if FLX_DEBUG
 			FlxG.game.debugger.vcr.onPause();
@@ -92,6 +96,7 @@ class VCRFrontEnd
 			#end
 
 			paused = false;
+			pauseChanged.dispatch(false);
 
 			#if FLX_DEBUG
 			FlxG.game.debugger.vcr.onResume();

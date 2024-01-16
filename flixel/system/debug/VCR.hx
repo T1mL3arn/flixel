@@ -1,11 +1,12 @@
 package flixel.system.debug;
 
+import flixel.util.FlxSignal.FlxTypedSignal;
 #if FLX_DEBUG
 import openfl.display.BitmapData;
 import openfl.text.TextField;
 import flixel.FlxG;
-import flixel.system.ui.FlxSystemButton;
 import flixel.system.debug.FlxDebugger.GraphicArrowRight;
+import flixel.system.ui.FlxSystemButton;
 #if FLX_RECORD
 import flixel.util.FlxStringUtil;
 #end
@@ -71,6 +72,7 @@ class VCR
 		#end
 		playbackToggleBtn = Debugger.addButton(CENTER, new GraphicPause(0, 0), onManualPause);
 		stepBtn = Debugger.addButton(CENTER, new GraphicStep(0, 0), onStep);
+		stepBtn.name = 'stepbtn';
 
 		#if FLX_RECORD
 		runtimeDisplay = DebuggerUtil.createTextField(0, -9);
