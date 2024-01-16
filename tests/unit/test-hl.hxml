@@ -1,0 +1,2 @@
+-cmd haxelib run munit gen -filter flixel.util.FlxSignalTest
+-cmd haxelib run lime test hl
